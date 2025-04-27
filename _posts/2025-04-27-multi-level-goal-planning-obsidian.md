@@ -8,6 +8,7 @@ tags:
   - goal planning
   - markdown
   - knowledge management
+excerpt: "Goal planning is a very good habit to track the progress of your work and reflect on past productivity, as well as plan time for the future. In this article, I'll present one of the most customizable tools for this purpose."
 ---
 
 *This article was originally published on [Medium](https://medium.com/@jahnke.rouven/a-multi-level-goal-planning-system-using-obsidian-29b94acd22f8). Follow me there for more content!*
@@ -68,7 +69,7 @@ The yearly goals are goals for a year; this time horizon is, for me, the best, b
 
 This is my template for the yearly goals:
 
-```
+{% highlight yaml %}
 Created: <% tp.date.now("YYYY-MM-DD") %>  
 tags:  
   - focus  
@@ -89,7 +90,7 @@ action QuickAdd: set-done-with-date
   
 Bar:: `$= dv.view('goal-average-progress-bar', {file: '{{VALUE:goal}}'})`  
 TimeProgress:: `$= dv.view('time-progress-bar', {file: '<%tp.file.title%>'})`
-```
+{% endhighlight %}
 
 So I have in the Frontmatter different properties. The properties `date` and `endDate` are the start and end dates of my yearly goal. Because I defined some yearly goals in the middle of one year, I also added the option to set this time not only within one year (e.g. instead of 01.01.2025–31.12.2025 this dates: 01.06.2025–01.06.2026).  
 The `status` has these options:  
@@ -123,7 +124,7 @@ so that I see this on my yearly or quartely note, so I can track it.
 
 The milestones are particular goals, so the sub-goals of the yearly goals. This is my template:
 
-```
+{% highlight yaml %}
 ---  
 Created: <% tp.date.now("YYYY-MM-DD") %>  
 tags:  
@@ -251,6 +252,7 @@ dv.table(["Project", "Status", "Completed", "Tasks"], pages.map(p => {
  ]  
 }));  
 ```
+{% endhighlight %}
 ```
 
 So here are partly the same properties, but also new scripts:
@@ -272,7 +274,7 @@ This is an example:
 
 So the lowest level of notes in my goal planning is the project notes. In these notes, I break down the milestones into projects (on which I work on for a few weeks):
 
-```
+{% highlight yaml %}
 ---  
 Created: <% tp.date.now("YYYY-MM-DD") %>  
 tags:  
@@ -341,7 +343,7 @@ Quartal:: [[<%tp.date.now("YYYY")%> {{VALUE:Q1,Q2,Q3,Q4}}]]
 ## Review  
   
 ### Reflection
-```
+{% endhighlight %}
 
 Here are basically the same inline fields. The link to the Milestone and the Quartal follow the same logic as on one higher level, but the Bar is a little bit different.  
 So the bar is the progress of the tasks only in this Project Note. Lower in this note is the section for the Tasks.
@@ -374,8 +376,7 @@ So there you can also move the events and modify the start or end date.
 
 This timeline is based on this Markwhen note:
 
-```
-
+{% highlight text %}
 group 1. Sehr gutes Zeugnis Q1  
 2025-01-07/2025-07-14: [[M} 1.2 Sehr gute Unterrichtsbeiträge]] #in-progress  
 2025-01-08/2025-07-15: [[M} 1.3 Sehr gute Nacharbeit, sowie Organisation und Obsidian-Workflow (Lernplan, präv. Lernkarten)]] #in-progress  
@@ -401,7 +402,7 @@ end group
 group 4. Wissensschatzerweiterung  
 2024-11-25/2025-11-01: [[M} X Persönlichkeitsentwicklung und Erweiterung Kompetenz und Wissen]] #in-progress  
 end group
-```
+{% endhighlight %}
 
 
 Therefore, I've created a [plugin](https://github.com/rpj-07/Markwhen-File-Sync) which synchronizes the information in the milestone notes to this note (and in the right format), but also synchronizes the modifications from this note to the individual milestone notes.
