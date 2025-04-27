@@ -3,9 +3,14 @@ layout: archive
 title: "Teaching"
 permalink: /teaching/
 author_profile: true
+published: false
 ---
 
 {% include base_path %}
+
+{% comment %}
+This page is currently deactivated but can be reactivated by setting published: true
+{% endcomment %}
 
 {% for post in site.teaching reversed %}
   {% include archive-single.html %}
